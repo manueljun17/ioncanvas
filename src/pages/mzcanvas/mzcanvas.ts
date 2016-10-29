@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, Events } from 'ionic-angular';
-import * as x from '../../providers/videocenter';
+
 
 /*
   Generated class for the Mycanvas page.
@@ -13,16 +13,16 @@ import * as x from '../../providers/videocenter';
   templateUrl: 'mzcanvas.html'
 })
 export class MZcanvasPage {
-  private mouse : x.Mouse = x.mouse;
-  private drawsize;
+  dmode;
+  dsize;
+  dcolor;
+  DrawMode;
+  DrawSize;
+  DrawColor;
   constructor(
-    public navCtrl: NavController, 
-    private vc: x.Videocenter,
+    public navCtrl: NavController,
     private events: Events) {}
- updateSelectedValue(ev) {
-   console.log(ev);
-   this.drawsize = ev;
- }
+
  onClickClear() {
    this.events.publish( 'clear-canvas' );
  }     

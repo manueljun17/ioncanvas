@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, Renderer } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer } from '@angular/core';
 
 /*
   Generated class for the Canvas directive.
