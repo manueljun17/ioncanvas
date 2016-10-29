@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { MycanvasPage } from '../pages/mycanvas/mycanvas';
+import { MZcanvasPage } from '../pages/mzcanvas/mzcanvas';
 import { Videocenter } from '../providers/videocenter';
-import { ICanvasDirective } from '../components/icanvas/icanvas';
+import { MycanvasDirective } from '../components/mycanvas/mycanvas';
 import { Storage } from '@ionic/storage';
 @NgModule({
   declarations: [
     MyApp,
-    MycanvasPage,
-    ICanvasDirective
+    MZcanvasPage,
+    MycanvasDirective
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -17,7 +17,7 @@ import { Storage } from '@ionic/storage';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    MycanvasPage
+    MZcanvasPage
   ],
   providers: [Videocenter, Storage]
 })
