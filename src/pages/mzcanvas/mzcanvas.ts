@@ -22,5 +22,8 @@ export class MZcanvasPage {
  updateSelectedValue(ev) {
    console.log(ev);
    this.drawsize = ev;
+ }
+ onClickClear() {
+   this.events.publish( 'clear-canvas' );
  }     
 }

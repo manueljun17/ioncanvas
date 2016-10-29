@@ -19,6 +19,7 @@
       <canvas mycanvas [drawSize]="dsize" [drawColor]="dcolor" [drawMode]="dmode"></canvas>
     </ion-item>
   </ion-list>
+  
   <ion-list>
     <ion-item>
       <ion-label>Draw Mode</ion-label>
@@ -51,4 +52,7 @@
       </ion-select>
     </ion-item>
   </ion-list>
+  <ion-item>
+    <button ion-button color="light" (click)="onClickClear()" block>Clear</button>
+  </ion-item>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Directive, ElementRef, HostListener, Input, Renderer } from '@angular/core';
+import { Events } from 'ionic-angular';
 import * as vc from '../../providers/videocenter';
 
 @Directive({
@@ -12,12 +13,16 @@ export class MycanvasDirective {
   private canvas: any;
   private canvas_context: any;
   private mouse : vc.Mouse = vc.mouse;
-  constructor(private el: ElementRef, private renderer: Renderer) {
-       this.canvas = el.nativeElement;
-       this.canvas_context = this.canvas.getContext('2d');
-       this.drawSize = "2";
-       this.drawColor = "#161515";
-       this.drawColor = "l";
+  constructor(
+     private el: ElementRef,
+     private renderer: Renderer,
+     private events: Events) {
+      this.canvas = el.nativeElement;
+      this.canvas_context = this.canvas.getContext('2d');
+      this.drawSize = "2";
+      this.drawColor = "#161515";
+      this.drawColor = "l";
+      this.listenEvents();
     }
   //Mouse Event
   @HostListener('mousedown', ['$event'])
@@ -152,6 +157,24 @@ export class MycanvasDirective {
         ctx.fill();
       
     }      
+  }
+  clear_my_canvas() {
+    //get the canvas context
+    let ctx = this.canvas_context; 
+    let canvas = this.canvas; 
+    // Store the current transformation matrix
+    ctx.save(); 
+    // Use the identity matrix while clearing the canvas
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Restore the transform
+    ctx.restore();
+  }
+  // Event Listener
+  listenEvents() {
+    this.events.subscribe( 'clear-canvas', () => {
+      this.clear_my_canvas();
+    });    
   }
 }
 
